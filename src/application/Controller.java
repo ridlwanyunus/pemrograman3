@@ -11,6 +11,9 @@ import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 
 import application.model.Barang;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import javafx.beans.InvalidationListener;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -40,19 +43,45 @@ public class Controller implements Initializable {
 	TextField textField;
 	
 	@FXML
+	ChoiceBox<String> cbFieldFilter;
+	
+	@FXML
 	ChoiceBox<String> cbNamaFilter;
 	
 	@FXML
 	JFXButton btnUpdateStok;
 	
+	
 	private ModalUpdateStokController modalUpdateStokController;
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		cbNamaFilter.getItems().add("Begin with");
-		cbNamaFilter.getItems().add("End with");
 		
-		cbNamaFilter.setValue("Begin with");
+		cbFieldFilter.getItems().add("Nama Barang");
+		cbFieldFilter.getItems().add("Harga");
+		
+		cbFieldFilter.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+
+			@Override
+			public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
+				// TODO Auto-generated method stub
+				System.out.println(cbFieldFilter.getItems().get((Integer) newValue));
+				int choice = (Integer) newValue;
+				cbNamaFilter.getSelectionModel().clearSelection();
+				cbNamaFilter.getItems().clear();
+				if(choice == 0) {
+					cbNamaFilter.getItems().add("Start With");
+					cbNamaFilter.getItems().add("End With");
+
+				} else {
+					cbNamaFilter.getItems().add("Greater Than");
+					cbNamaFilter.getItems().add("Less Than");
+				}
+			}
+		});
+		
+		
+		
 		
 		System.out.println(cbNamaFilter.getValue());
 		
@@ -130,6 +159,5 @@ public class Controller implements Initializable {
 			e.printStackTrace();
 		}
 	}
-	
 	
 }

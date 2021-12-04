@@ -11,9 +11,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="815.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
-      <JFXButton layoutX="642.0" layoutY="64.0" prefHeight="26.0" prefWidth="108.0" text="CARI" textAlignment="CENTER">
+      <JFXButton layoutX="648.0" layoutY="64.0" prefHeight="26.0" prefWidth="108.0" text="Cari" textAlignment="CENTER">
          <graphic>
-            <FontAwesomeIconView glyphName="FILTER" wrappingWidth="31.028607934713364" />
+            <FontAwesomeIconView fx:id="faFilter" glyphName="FILTER" styleClass="btn-fa" text="" wrappingWidth="14.228683084249496" />
          </graphic>
       </JFXButton>
       <HBox layoutY="117.0" prefHeight="450.0" prefWidth="815.0">
@@ -26,8 +26,12 @@
             <VBox prefHeight="450.0" prefWidth="35.0" />
          </children>
       </HBox>
-      <TextField fx:id="textField" layoutX="482.0" layoutY="64.0" />
-      <ChoiceBox fx:id="cbNamaFilter" layoutX="312.0" layoutY="64.0" prefWidth="150.0" />
-      <JFXButton fx:id="btnUpdateStok" layoutX="38.0" layoutY="64.0" onAction="#showModalUpdateStok" text="Update Stok" />
+      <TextField fx:id="textField" layoutX="482.0" layoutY="64.0" prefHeight="26.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="cbNamaFilter" layoutX="370.0" layoutY="64.0" prefHeight="26.0" prefWidth="102.0" />
+      <JFXButton fx:id="btnUpdateStok" layoutX="38.0" layoutY="64.0" onAction="#showModalUpdateStok" prefHeight="26.0" prefWidth="114.0" text="Update Stok">
+         <graphic>
+            <FontAwesomeIconView glyphName="EDIT" wrappingWidth="13.60003662109375" />
+         </graphic></JFXButton>
+      <ChoiceBox fx:id="cbFieldFilter" layoutX="226.0" layoutY="64.0" prefHeight="26.0" prefWidth="133.0" />
    </children>
 </AnchorPane>

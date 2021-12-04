@@ -22,5 +22,6 @@
             <FontAwesomeIconView glyphName="BACKWARD" />
          </graphic>
       </JFXButton>
+      <Label fx:id="lblUpdateStok" layoutY="-2.0" prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: #FF6961;" />
    </children>
 </AnchorPane>
