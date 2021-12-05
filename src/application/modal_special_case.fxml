@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ModalSpecialCaseController">
+   <children>
+      <JFXButton layoutX="188.0" layoutY="186.0" onAction="#showModalUpdateStok" prefHeight="26.0" prefWidth="120.0" text="Update Stok">
+         <graphic>
+            <FontAwesomeIconView glyphName="EDIT" />
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="313.0" layoutY="186.0" onAction="#showModalDelete" prefHeight="26.0" prefWidth="112.0" text="Delete Bulk">
+         <graphic>
+            <FontAwesomeIconView glyphName="ERASER" />
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="184.0" layoutY="149.0" onAction="#btnAddHargaColumn" prefHeight="26.0" prefWidth="243.0" text="Tambah Kolom Harga">
+         <graphic>
+            <FontAwesomeIconView glyphName="TABLE" />
+         </graphic>
+      </JFXButton>
+   </children>
+</AnchorPane>

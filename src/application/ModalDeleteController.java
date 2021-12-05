@@ -1,25 +1,43 @@
 package application;
 
+import java.net.URL;
 import java.sql.Connection;
+import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 
 import application.config.DatabaseConfig;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-public class ModalUpdateStokController {
+public class ModalDeleteController implements Initializable {
 	
 	@FXML
-	private JFXButton btnSave;
+	private ChoiceBox<String> cbDelete;
+	
+	@FXML
+	private TextField deleteTxtField;
+	
+	@FXML
+	private JFXButton deleteBtnHapus;
 	
 	@FXML
 	private JFXButton btnClose;
 	
-	public Controller parentController;
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		cbDelete.getItems().add("Begin With");
+		cbDelete.setValue("Begin With");
+		
+	}
+	
 	
 	public void show(Parent root) {
 		try {
@@ -30,7 +48,7 @@ public class ModalUpdateStokController {
 			String imgPath = this.getClass().getResource("icon.png").toExternalForm();
 			Image img = new Image(imgPath);
 			stage.getIcons().add(img);
-			stage.setTitle("Form Update Stok");
+			stage.setTitle("Form Delete Bulk");
 			stage.setScene(scene);
 			stage.show();
 		} catch (Exception e) {
@@ -38,18 +56,15 @@ public class ModalUpdateStokController {
 		}
 	}
 	
-	public void setParentController(Controller parentController) {
-		this.parentController = parentController;
-	}
-	
-	public void save() {
-		System.out.println("save");
+	public void delete(ActionEvent event) {
+		System.out.println("delete");
 	}
 	
 	public void close() {
-		System.out.println("save");
+		System.out.println("close");
 		Stage stage = (Stage) btnClose.getScene().getWindow();
 		stage.close();
 	}
+
 
 }

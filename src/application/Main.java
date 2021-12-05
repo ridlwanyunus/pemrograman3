@@ -1,5 +1,8 @@
 package application;
 	
+import java.sql.Connection;
+
+import application.config.DatabaseConfig;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -10,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
@@ -36,7 +40,10 @@ public class Main extends Application implements EventHandler<ActionEvent>{
 			
 			String css = this.getClass().getResource("application.css").toExternalForm();
 			scene.getStylesheets().add(css);	
-			primaryStage.setTitle("Title of Window");
+			String imgPath = this.getClass().getResource("icon.png").toExternalForm();
+			Image img = new Image(imgPath);
+			primaryStage.getIcons().add(img);
+			primaryStage.setTitle("202043579115 Ridlwan Yunus");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {

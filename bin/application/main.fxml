@@ -28,9 +28,9 @@
       </HBox>
       <TextField fx:id="textField" layoutX="482.0" layoutY="64.0" prefHeight="26.0" prefWidth="150.0" />
       <ChoiceBox fx:id="cbNamaFilter" layoutX="370.0" layoutY="64.0" prefHeight="26.0" prefWidth="102.0" />
-      <JFXButton fx:id="btnUpdateStok" layoutX="38.0" layoutY="64.0" onAction="#showModalUpdateStok" prefHeight="26.0" prefWidth="114.0" text="Update Stok">
+      <JFXButton fx:id="btnUpdateStok" layoutX="38.0" layoutY="64.0" onAction="#showModalSpecialCase" prefHeight="26.0" prefWidth="114.0" text="Special Case">
          <graphic>
-            <FontAwesomeIconView glyphName="EDIT" wrappingWidth="13.60003662109375" />
+            <FontAwesomeIconView glyphName="CHECK" wrappingWidth="13.60003662109375" />
          </graphic></JFXButton>
       <ChoiceBox fx:id="cbFieldFilter" layoutX="226.0" layoutY="64.0" prefHeight="26.0" prefWidth="133.0" />
    </children>

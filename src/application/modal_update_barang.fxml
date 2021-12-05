@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ModalUpdateBarangController">
+   <children>
+      <Label layoutX="86.0" layoutY="93.0" prefHeight="18.0" prefWidth="150.0" text="Kode Barang" />
+      <TextField fx:id="tfKodeBarang" layoutX="86.0" layoutY="112.0" />
+      <Label layoutX="86.0" layoutY="144.0" prefHeight="18.0" prefWidth="150.0" text="Nama Barang" />
+      <TextField fx:id="tfNamaBarang" layoutX="86.0" layoutY="163.0" />
+      <Label layoutX="87.0" layoutY="200.0" prefHeight="18.0" prefWidth="150.0" text="Stok" />
+      <TextField fx:id="tfStok" layoutX="87.0" layoutY="219.0" />
+      <Label layoutX="87.0" layoutY="256.0" prefHeight="18.0" prefWidth="150.0" text="Harga" />
+      <TextField fx:id="tfHarga" layoutX="87.0" layoutY="275.0" />
+      <JFXButton fx:id="btnSave" layoutX="324.0" layoutY="330.0" onAction="#save" prefHeight="26.0" prefWidth="80.0" text="Save">
+         <graphic>
+            <FontAwesomeIconView glyphName="SAVE" />
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnClose" layoutX="236.0" layoutY="330.0" onAction="#close" prefHeight="26.0" prefWidth="80.0" text="Cancel">
+         <graphic>
+            <FontAwesomeIconView glyphName="BACKWARD" />
+         </graphic>
+      </JFXButton>
+      <Label prefHeight="54.0" prefWidth="600.0" style="-fx-background-color: #FF6961;" />
+   </children>
+</AnchorPane>

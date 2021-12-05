@@ -12,7 +12,7 @@
 
 .tree-table-view{
     -fx-tree-table-color: #FF6961;
-    -fx-tree-table-rippler-color : rgba(255, 0, 0, 0.9);
+    -fx-tree-table-rippler-color : #FF6961;
     -fx-alignment: center;
 }
 .tree-table-view:focused .tree-table-row-cell:selected {
