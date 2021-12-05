@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="815.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
-      <JFXButton layoutX="648.0" layoutY="64.0" prefHeight="26.0" prefWidth="108.0" text="Cari" textAlignment="CENTER">
+      <JFXButton layoutX="648.0" layoutY="64.0" onAction="#refreshTable" prefHeight="26.0" prefWidth="108.0" text="Cari" textAlignment="CENTER">
          <graphic>
             <FontAwesomeIconView fx:id="faFilter" glyphName="FILTER" styleClass="btn-fa" text="" wrappingWidth="14.228683084249496" />
          </graphic>

@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -36,12 +37,17 @@ public class ModalUpdateBarangController implements Initializable {
 	@FXML
 	private JFXButton btnClose;
 	
+	@FXML
+	private Label lblHarga;
+	
 	public Controller parentController;
+	
+	private BarangRepository barangRepository = new BarangRepository();
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		
+		tfKodeBarang.setEditable(false);
 	}
 	
 	public void show(Parent root, Barang barang) {
@@ -63,9 +69,22 @@ public class ModalUpdateBarangController implements Initializable {
 		tfNamaBarang.setText(barang.getNamaBarang().getValue());
 		tfStok.setText(barang.getStok().getValue().toString());
 		tfHarga.setText(barang.getHarga().getValue().toString());
+		System.out.println("Harga is created : " + barangRepository.isHargaColumnCreated());
+		if(barangRepository.isHargaColumnCreated() == false) {
+			lblHarga.setVisible(false);
+			tfHarga.setVisible(false);
+		} else {
+			lblHarga.setVisible(true);
+			tfHarga.setVisible(true);
+		}
 	}
 	
 	public void save() {
+		barangRepository.updateStok(tfKodeBarang.getText(), tfStok.getText());
+		if(barangRepository.isHargaColumnCreated()) {
+			barangRepository.updateHarga(tfKodeBarang.getText(), tfHarga.getText());
+		}
+		this.parentController.refreshTable();
 		System.out.println("save");
 	}
 	

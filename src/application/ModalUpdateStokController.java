@@ -8,6 +8,7 @@ import application.config.DatabaseConfig;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -19,7 +20,12 @@ public class ModalUpdateStokController {
 	@FXML
 	private JFXButton btnClose;
 	
+	@FXML
+	private TextField txtMin, txtAkhir;
+	
 	public Controller parentController;
+	
+	private BarangRepository barangRepository = new BarangRepository();
 	
 	public void show(Parent root) {
 		try {
@@ -43,6 +49,9 @@ public class ModalUpdateStokController {
 	}
 	
 	public void save() {
+		
+		barangRepository.updateStokLessThan(txtMin.getText(), txtAkhir.getText());
+		this.parentController.refreshTable();
 		System.out.println("save");
 	}
 	

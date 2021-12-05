@@ -43,6 +43,7 @@ public class ModalSpecialCaseController {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("modal_update_stok.fxml"));
 			Parent root = loader.load();
 			this.modalUpdateStokController = loader.getController();
+			this.modalUpdateStokController.setParentController(this.mainController);
 			this.modalUpdateStokController.show(root);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -56,6 +57,7 @@ public class ModalSpecialCaseController {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("modal_delete.fxml"));
 			Parent root = loader.load();
 			this.modalDeleteController = loader.getController();
+			this.modalDeleteController.setParentController(mainController);
 			this.modalDeleteController.show(root);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -65,8 +67,9 @@ public class ModalSpecialCaseController {
 	
 	public void btnAddHargaColumn() {
 		
+		barangRepository.addHargaColumn();
 		barangRepository.setHargaColumnCreated(true);
-		this.mainController.initialize(null, null);
+		this.mainController.refreshTable();
 	}
 	
 	public void setMainController(Controller mainController) {

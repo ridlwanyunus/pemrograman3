@@ -14,7 +14,7 @@
       <TextField fx:id="tfNamaBarang" layoutX="86.0" layoutY="163.0" />
       <Label layoutX="87.0" layoutY="200.0" prefHeight="18.0" prefWidth="150.0" text="Stok" />
       <TextField fx:id="tfStok" layoutX="87.0" layoutY="219.0" />
-      <Label layoutX="87.0" layoutY="256.0" prefHeight="18.0" prefWidth="150.0" text="Harga" />
+      <Label fx:id="lblHarga" layoutX="87.0" layoutY="256.0" prefHeight="18.0" prefWidth="150.0" text="Harga" />
       <TextField fx:id="tfHarga" layoutX="87.0" layoutY="275.0" />
       <JFXButton fx:id="btnSave" layoutX="324.0" layoutY="330.0" onAction="#save" prefHeight="26.0" prefWidth="80.0" text="Save">
          <graphic>

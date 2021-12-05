@@ -126,7 +126,7 @@ public class Controller implements Initializable {
 				return param.getValue().getValue().getStok().asObject();
 			}
 		});
-		System.out.println(barangRepository.isHargaColumnCreated());
+		System.out.println("controller harga : " + barangRepository.isHargaColumnCreated());
 		if(barangRepository.isHargaColumnCreated() == true) {
 			JFXTreeTableColumn<Barang, Integer> harga = new JFXTreeTableColumn<Barang, Integer>("Harga");
 			harga.setPrefWidth(200);
@@ -145,7 +145,6 @@ public class Controller implements Initializable {
 		
 		ObservableList<Barang> listBarang = FXCollections.observableArrayList();
 		listBarang = barangRepository.findAllBarang();
-
 		
 		TreeItem<Barang> root = new RecursiveTreeItem<Barang>(listBarang, RecursiveTreeObject::getChildren);
 
@@ -161,6 +160,86 @@ public class Controller implements Initializable {
 			}
 		});
 	}
+	
+	
+	public void refreshTable() {
+		
+		Font font = Font.loadFont(this.getClass().getResourceAsStream("Poppins-Medium.ttf"), 12);
+		textField.setFont(font);
+		
+		JFXTreeTableColumn<Barang, String> kodeBarang = new JFXTreeTableColumn<Barang, String>("Kode Barang");
+		kodeBarang.setPrefWidth(180);
+		kodeBarang.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Barang,String>, ObservableValue<String>>() {
+			
+			@Override
+			public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Barang, String> param) {
+				return param.getValue().getValue().getKodeBarang();
+			}
+		});
+		JFXTreeTableColumn<Barang, String> namaBarang = new JFXTreeTableColumn<Barang, String>("Nama Barang");
+		namaBarang.setPrefWidth(180);
+		namaBarang.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Barang,String>, ObservableValue<String>>() {
+			
+			@Override
+			public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Barang, String> param) {
+				return param.getValue().getValue().getNamaBarang();
+			}
+		});
+		JFXTreeTableColumn<Barang, Integer> stok = new JFXTreeTableColumn<Barang, Integer>("Stok");
+		stok.setPrefWidth(180);
+		stok.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Barang,Integer>, ObservableValue<Integer>>() {
+			
+			@Override
+			public ObservableValue<Integer> call(TreeTableColumn.CellDataFeatures<Barang, Integer> param) {
+				return param.getValue().getValue().getStok().asObject();
+			}
+		});
+		System.out.println("controller harga : " + barangRepository.isHargaColumnCreated());
+		if(barangRepository.isHargaColumnCreated() == true) {
+			JFXTreeTableColumn<Barang, Integer> harga = new JFXTreeTableColumn<Barang, Integer>("Harga");
+			harga.setPrefWidth(200);
+			harga.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Barang,Integer>, ObservableValue<Integer>>() {
+				
+				@Override
+				public ObservableValue<Integer> call(TreeTableColumn.CellDataFeatures<Barang, Integer> param) {
+					return param.getValue().getValue().getHarga().asObject();
+				}
+			});
+			treeView.getColumns().setAll(kodeBarang, namaBarang, stok, harga);
+		} else {
+			treeView.getColumns().setAll(kodeBarang, namaBarang, stok);
+		}
+		
+		
+		ObservableList<Barang> listBarang = FXCollections.observableArrayList();
+		if(cbNamaFilter.getValue() == null) {
+			listBarang = barangRepository.findBarangBeginWith(textField.getText());
+		} else {
+			if(cbNamaFilter.getValue().equalsIgnoreCase("Start With")) {
+				listBarang = barangRepository.findBarangBeginWith(textField.getText());
+			} else 
+			if(cbNamaFilter.getValue().equalsIgnoreCase("End With")) {
+				listBarang = barangRepository.findBarangEndWith(textField.getText());
+			} else 
+			if(cbNamaFilter.getValue().equalsIgnoreCase("Greater Than")) {
+				listBarang = barangRepository.findBarangStockGreaterThan(textField.getText());
+			}else 
+			if(cbNamaFilter.getValue().equalsIgnoreCase("Less Than")) {
+				listBarang = barangRepository.findBarangStockLessThan(textField.getText());
+			} 
+		}
+		
+		
+
+		
+		TreeItem<Barang> root = new RecursiveTreeItem<Barang>(listBarang, RecursiveTreeObject::getChildren);
+
+		treeView.setRoot(root);
+		treeView.setShowRoot(false);
+		
+	}
+	
+	
 	
 	public void showModalSpecialCase() {
 		
@@ -182,6 +261,7 @@ public class Controller implements Initializable {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("modal_update_barang.fxml"));
 			Parent root = loader.load();
 			this.modalUpdateBarangController = loader.getController();
+			this.modalUpdateBarangController.setParentController(this);
 			this.modalUpdateBarangController.show(root, data);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

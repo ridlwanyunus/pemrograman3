@@ -31,6 +31,11 @@ public class ModalDeleteController implements Initializable {
 	@FXML
 	private JFXButton btnClose;
 	
+	private Controller parentController;
+	
+	
+	private BarangRepository barangRepository = new BarangRepository();
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		cbDelete.getItems().add("Begin With");
@@ -58,12 +63,24 @@ public class ModalDeleteController implements Initializable {
 	
 	public void delete(ActionEvent event) {
 		System.out.println("delete");
+		barangRepository.deleteContainString(deleteTxtField.getText());
+		this.parentController.refreshTable();
 	}
 	
 	public void close() {
 		System.out.println("close");
 		Stage stage = (Stage) btnClose.getScene().getWindow();
 		stage.close();
+	}
+
+
+	public Controller getParentController() {
+		return parentController;
+	}
+
+
+	public void setParentController(Controller parentController) {
+		this.parentController = parentController;
 	}
 
 

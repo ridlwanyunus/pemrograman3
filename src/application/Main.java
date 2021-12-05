@@ -28,9 +28,15 @@ public class Main extends Application implements EventHandler<ActionEvent>{
 	@FXML
 	TextField textField;
 	
+	BarangRepository barangRepository = new BarangRepository();
+	
 	@Override
 	public void start(Stage primaryStage) {
-		
+//		barangRepository.dropDatabase();
+//		barangRepository.createDatabase();
+		barangRepository.dropTable();
+		barangRepository.createTable();
+		barangRepository.initializeTable();
 		
 		try {
 			Font font = Font.loadFont(getClass().getResource("PTSans-Bold.ttf").toExternalForm(), 12);
@@ -52,6 +58,7 @@ public class Main extends Application implements EventHandler<ActionEvent>{
 	}
 	
 	public static void main(String[] args) {
+		
 		launch(args);
 	}
 
