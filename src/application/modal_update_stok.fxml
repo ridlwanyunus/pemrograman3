@@ -9,9 +9,9 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ModalUpdateStokController">
    <children>
       <Label layoutX="37.0" layoutY="109.0" text="Stok Minimal" />
-      <Label layoutX="37.0" layoutY="143.0" text="Stok Akhir" />
-      <TextField fx:id="txtMin" layoutX="119.0" layoutY="105.0" />
-      <TextField fx:id="txtAkhir" layoutX="118.0" layoutY="139.0" />
+      <Label layoutX="37.0" layoutY="143.0" text="Stok Penambahan" />
+      <TextField fx:id="txtMin" layoutX="152.0" layoutY="105.0" />
+      <TextField fx:id="txtAkhir" layoutX="151.0" layoutY="139.0" />
       <JFXButton fx:id="btnSave" layoutX="282.0" layoutY="200.0" onAction="#save" prefHeight="26.0" prefWidth="80.0" text="Save">
          <graphic>
             <FontAwesomeIconView glyphName="SAVE" />
